@@ -71,4 +71,6 @@ enum MemoryEvent:
   /** Flips selected cards. */
   case FlipSelected
 
-type MemoryState = Unit // Change this!
+enum MemoryState:
+  case Play(players: Seq[UserId], board: Vector[(Card, CardView)], phase: PhaseView, alreadyMatched: ScoresView, selected: List[Int])
+  case End(winners: Set[UserId], alreadyMatched: ScoresView)
